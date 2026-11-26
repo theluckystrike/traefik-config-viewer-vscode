@@ -1,0 +1,25 @@
+[api]
+  dashboard = true
+  insecure = true
+
+[entryPoints.web]
+  address = ":80"
+
+[entryPoints.websecure]
+  address = ":443"
+
+[certificatesResolvers.le.acme]
+  email = "ops@example.com"
+  storage = "acme.json"
+  [certificatesResolvers.le.acme.tlsChallenge]
+
+[http.routers.app]
+  rule = "Host(`app.example.com`)"
+  entryPoints = ["websecure"]
+  service = "app_svc"
+  [http.routers.app.tls]
+    certResolver = "le"
+
+[http.services.app_svc.loadBalancer]
+  [[http.services.app_svc.loadBalancer.servers]]
+    url = "http://10.0.5.10:8080"

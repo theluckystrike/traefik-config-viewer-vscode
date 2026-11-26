@@ -1,0 +1,323 @@
+{
+  "name": "zovo-traefik-config-viewer",
+  "displayName": "Traefik Route & TLS Viewer",
+  "description": "Inspect traefik.yml, traefik.yaml, traefik.toml and *.traefik.yml files in VS Code: entryPoints, HTTP/TCP routers, middlewares, services, TLS certResolvers and static security findings, offline.",
+  "version": "0.1.0",
+  "publisher": "zovo",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0F172A",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/traefik-config-viewer-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/theluckystrike/traefik-config-viewer-vscode/issues"
+  },
+  "homepage": "https://github.com/theluckystrike/traefik-config-viewer-vscode#readme",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "traefik",
+    "reverse-proxy",
+    "ingress",
+    "tls",
+    "routing",
+    "devops",
+    "security",
+    "viewer"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onUri",
+    "onCustomEditor:zovo-traefik.viewer"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "zovo-traefik.viewer",
+        "displayName": "Traefik Route & TLS Viewer",
+        "selector": [
+          {
+            "filenamePattern": "traefik.yml"
+          },
+          {
+            "filenamePattern": "traefik.yaml"
+          },
+          {
+            "filenamePattern": "traefik.toml"
+          },
+          {
+            "filenamePattern": "*.traefik.yml"
+          },
+          {
+            "filenamePattern": "*.traefik.yaml"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "zovoTraefik.openWith",
+        "title": "Open in Traefik Route & TLS Viewer",
+        "category": "Traefik Route & TLS Viewer",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "zovoTraefik.openSample",
+        "title": "Open the Sample Traefik Config",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.openWalkthrough",
+        "title": "Get Started",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.moreViewers",
+        "title": "More free tools by Zovo",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.supportDeveloper",
+        "title": "Support the developer",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.auditSecurity",
+        "title": "Audit Traefik TLS, dashboard and routing (Pro, 1 free try)",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.diffConfigs",
+        "title": "Compare two Traefik config files (Pro, 1 free try)",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.exportRouteMap",
+        "title": "Export Mermaid route map and inventory (Pro, 1 free try)",
+        "category": "Traefik Route & TLS Viewer"
+      },
+      {
+        "command": "zovoTraefik.zovoPro.auditSecurity",
+        "title": "Zovo Pro: Audit Traefik TLS, dashboard and routing"
+      },
+      {
+        "command": "zovoTraefik.zovoPro.diffConfigs",
+        "title": "Zovo Pro: Compare two Traefik config files"
+      },
+      {
+        "command": "zovoTraefik.zovoPro.exportRouteMap",
+        "title": "Zovo Pro: Export Mermaid route map and inventory"
+      },
+      {
+        "command": "zovoTraefik.zovoTitle.auditSecurity",
+        "title": "Zovo Pro: Audit Traefik TLS, dashboard and routing"
+      },
+      {
+        "command": "zovoTraefik.zovoTitle.diffConfigs",
+        "title": "Zovo Pro: Compare two Traefik config files"
+      },
+      {
+        "command": "zovoTraefik.zovoTitle.exportRouteMap",
+        "title": "Zovo Pro: Export Mermaid route map and inventory"
+      },
+      {
+        "command": "zovoTraefik.getPro",
+        "title": "Get Zovo Pro (USD 19 once, all Zovo extensions)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoTraefik.payWithPayPal",
+        "title": "Pay for Zovo Pro with PayPal (USD 19, team of 5 USD 59)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoTraefik.unlockWithSponsors",
+        "title": "I already paid: unlock with GitHub Sponsors",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoTraefik.enterLicenseKey",
+        "title": "Enter Zovo Pro license key",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoTraefik.removeLicense",
+        "title": "Remove Zovo Pro from this editor",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoTraefik.payByCard",
+        "title": "Pay for Zovo Pro by card (USD 19)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoTraefik.enterKey",
+        "title": "Enter a key",
+        "category": "Zovo Pro"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "zovoTraefik.zovoTitle.auditSecurity",
+          "when": "activeCustomEditorId == 'zovo-traefik.viewer' && config.zovoTraefik.showProTools",
+          "group": "zovoPro@1"
+        },
+        {
+          "command": "zovoTraefik.zovoTitle.diffConfigs",
+          "when": "activeCustomEditorId == 'zovo-traefik.viewer' && config.zovoTraefik.showProTools",
+          "group": "zovoPro@2"
+        },
+        {
+          "command": "zovoTraefik.zovoTitle.exportRouteMap",
+          "when": "activeCustomEditorId == 'zovo-traefik.viewer' && config.zovoTraefik.showProTools",
+          "group": "zovoPro@3"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "zovoTraefik.openWith",
+          "when": "resourceFilename =~ /^(traefik\\.(yml|yaml|toml)|.*\\.traefik\\.(yml|yaml))$/i && !explorerResourceIsFolder",
+          "group": "navigation@9"
+        },
+        {
+          "command": "zovoTraefik.zovoPro.auditSecurity",
+          "when": "resourceFilename =~ /^(traefik\\.(yml|yaml|toml)|.*\\.traefik\\.(yml|yaml))$/i && !explorerResourceIsFolder && config.zovoTraefik.showProTools",
+          "group": "zovoPro@1"
+        },
+        {
+          "command": "zovoTraefik.zovoPro.diffConfigs",
+          "when": "resourceFilename =~ /^(traefik\\.(yml|yaml|toml)|.*\\.traefik\\.(yml|yaml))$/i && !explorerResourceIsFolder && config.zovoTraefik.showProTools",
+          "group": "zovoPro@2"
+        },
+        {
+          "command": "zovoTraefik.zovoPro.exportRouteMap",
+          "when": "resourceFilename =~ /^(traefik\\.(yml|yaml|toml)|.*\\.traefik\\.(yml|yaml))$/i && !explorerResourceIsFolder && config.zovoTraefik.showProTools",
+          "group": "zovoPro@3"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "zovoTraefik.auditSecurity",
+          "when": "config.zovoTraefik.showProTools"
+        },
+        {
+          "command": "zovoTraefik.diffConfigs",
+          "when": "config.zovoTraefik.showProTools"
+        },
+        {
+          "command": "zovoTraefik.exportRouteMap",
+          "when": "config.zovoTraefik.showProTools"
+        },
+        {
+          "command": "zovoTraefik.zovoPro.auditSecurity",
+          "when": "false"
+        },
+        {
+          "command": "zovoTraefik.zovoPro.diffConfigs",
+          "when": "false"
+        },
+        {
+          "command": "zovoTraefik.zovoPro.exportRouteMap",
+          "when": "false"
+        },
+        {
+          "command": "zovoTraefik.zovoTitle.auditSecurity",
+          "when": "false"
+        },
+        {
+          "command": "zovoTraefik.zovoTitle.diffConfigs",
+          "when": "false"
+        },
+        {
+          "command": "zovoTraefik.zovoTitle.exportRouteMap",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Traefik Route & TLS Viewer",
+      "properties": {
+        "zovoTraefik.maxFileMB": {
+          "type": "number",
+          "default": 16,
+          "minimum": 1,
+          "maximum": 128,
+          "description": "Files up to this size open in Traefik Route & TLS Viewer."
+        },
+        "zovoTraefik.pageSize": {
+          "type": "number",
+          "default": 100,
+          "minimum": 20,
+          "maximum": 500,
+          "description": "Traefik entries shown on one page."
+        },
+        "zovoTraefik.showProTools": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Zovo Pro tools (Traefik security audit, config diff and route map export) in the Command Palette, the Explorer menu, the editor title menu and the viewer toolbar. Everything free stays visible."
+        },
+        "zovoTraefik.askForRating": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask once for a store rating after 3 Traefik config files open without an error across 2 days. Choosing No thanks never asks again. Nothing is sent anywhere."
+        },
+        "zovoTraefik.showSupportLinks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the small Rate, More free tools and Zovo Pro links at the bottom of the viewer. Nothing is sent anywhere."
+        },
+        "zovo.trafview.trial.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the 7-day Zovo Pro trial button in the Pro panel."
+        }
+      }
+    },
+    "walkthroughs": [
+      {
+        "id": "zovoTraefik.start",
+        "title": "Get started with Traefik Route & TLS Viewer",
+        "description": "Inspect traefik.yml, traefik.yaml, traefik.toml and *.traefik.yml files in VS Code: entryPoints, HTTP/TCP routers, middlewares, services, TLS certResolvers and static security findings, offline.",
+        "steps": [
+          {
+            "id": "open",
+            "title": "Open a Traefik config file",
+            "description": "Click any traefik.yml, traefik.yaml, traefik.toml or *.traefik.yml file in the Explorer, or run Open in Traefik Route & TLS Viewer.\n[Open the sample Traefik config](command:zovoTraefik.openSample)",
+            "media": {
+              "image": "images/screenshot.png",
+              "altText": "A traefik.yml file open in the viewer showing entryPoints, HTTP and TCP routers, middlewares, services, TLS certResolvers and static security findings."
+            },
+            "completionEvents": [
+              "onCommand:zovoTraefik.openSample"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node scripts/test.js",
+    "package": "npx -y @vscode/vsce@3 package --no-dependencies"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/theluckystrike/sponsorships?tier_id=679878"
+  }
+}

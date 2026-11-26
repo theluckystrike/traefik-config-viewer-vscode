@@ -1,0 +1,60 @@
+api:
+  dashboard: true
+  insecure: false
+
+serversTransport:
+  insecureSkipVerify: false
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  websecure:
+    address: ":443"
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: "ops@example.com"
+      storage: "/etc/traefik/acme.json"
+      tlsChallenge: {}
+
+http:
+  routers:
+    api_router:
+      rule: "Host(`api.example.com`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - admin_auth
+      service: api_svc
+      tls:
+        certResolver: letsencrypt
+    dashboard_router:
+      rule: "Host(`traefik.example.com`)"
+      entryPoints:
+        - websecure
+      middlewares:
+        - admin_auth
+      service: api@internal
+      tls:
+        certResolver: letsencrypt
+
+  middlewares:
+    admin_auth:
+      basicAuth:
+        users:
+          - "admin:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/"
+
+  services:
+    api_svc:
+      loadBalancer:
+        passHostHeader: true
+        healthCheck:
+          path: "/healthz"
+        servers:
+          - url: "https://10.0.1.10:8443"

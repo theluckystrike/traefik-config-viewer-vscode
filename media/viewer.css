@@ -1,0 +1,47 @@
+/* Traefik Route & TLS Viewer: theme colors only, so light, dark and high contrast themes work. */
+html, body { height: 100%; }
+body { margin: 0; padding: 0; color: var(--vscode-foreground); background: var(--vscode-editor-background); font-family: var(--vscode-font-family); font-size: var(--vscode-font-size); }
+#app { display: flex; flex-direction: column; height: 100vh; }
+.loading, .muted { color: var(--vscode-descriptionForeground); }
+.top { padding: 8px 12px 0; border-bottom: 1px solid var(--vscode-panel-border, transparent); }
+.title { display: flex; gap: 10px; align-items: baseline; margin-bottom: 6px; }
+.title .name { font-weight: 600; font-size: 1.1em; }
+.title .kind { color: var(--vscode-descriptionForeground); }
+.summary { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.chip { padding: 1px 7px; border-radius: 10px; background: var(--vscode-badge-background); color: var(--vscode-badge-foreground); font-size: 12px; }
+.chip b { font-weight: 600; opacity: .85; }
+.chip.bad, .bad { color: var(--vscode-errorForeground); }
+.chip.bad { background: var(--vscode-inputValidation-errorBackground, transparent); }
+.chip.warn { background: var(--vscode-inputValidation-warningBackground, transparent); border: 1px solid var(--vscode-inputValidation-warningBorder, #cca700); }
+.warn-text { color: var(--vscode-editorWarning-foreground, #cca700); }
+.ok { color: var(--vscode-testing-iconPassed, var(--vscode-foreground)); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px; }
+.toolbar input[type=search] { width: 250px; }
+input, select { background: var(--vscode-input-background); color: var(--vscode-input-foreground); border: 1px solid var(--vscode-input-border, transparent); padding: 3px 6px; font: inherit; }
+button { background: var(--vscode-button-secondaryBackground, var(--vscode-button-background)); color: var(--vscode-button-secondaryForeground, var(--vscode-button-foreground)); border: 0; padding: 4px 10px; cursor: pointer; font: inherit; border-radius: 2px; }
+button:hover { background: var(--vscode-button-secondaryHoverBackground, var(--vscode-button-hoverBackground)); }
+button:disabled { opacity: .5; cursor: default; }
+.sep { width: 1px; height: 18px; background: var(--vscode-panel-border, #8884); margin: 0 4px; }
+.tabs { display: flex; gap: 2px; align-items: flex-end; }
+.tab { background: none; color: var(--vscode-foreground); border-bottom: 2px solid transparent; border-radius: 0; opacity: .75; }
+.tab.on { border-bottom-color: var(--vscode-focusBorder); opacity: 1; }
+.hint { min-height: 18px; font-size: 12px; color: var(--vscode-descriptionForeground); padding: 2px 0; }
+.main { flex: 1; display: flex; min-height: 0; }
+.tablewrap { flex: 1; overflow: auto; }
+table#grid { border-collapse: collapse; width: 100%; font-family: var(--vscode-editor-font-family); font-size: 12px; }
+#grid th { position: sticky; top: 0; background: var(--vscode-editorGroupHeader-tabsBackground, var(--vscode-editor-background)); text-align: left; padding: 4px 8px; font-weight: 600; z-index: 1; }
+#grid td { padding: 3px 8px; border-bottom: 1px solid var(--vscode-editorWidget-border, #8882); white-space: nowrap; max-width: 420px; overflow: hidden; text-overflow: ellipsis; }
+#grid tbody tr { cursor: default; }
+#grid tbody tr:hover { background: var(--vscode-list-hoverBackground); }
+#grid tbody tr.sel { background: var(--vscode-list-activeSelectionBackground); color: var(--vscode-list-activeSelectionForeground); }
+#grid td.num, #grid th.num { text-align: right; }
+.badge-muted { display: inline-block; padding: 0 5px; margin-left: 4px; border-radius: 8px; font-size: 10px; color: var(--vscode-descriptionForeground); border: 1px solid var(--vscode-panel-border, #8886); }
+.detail { width: 40%; min-width: 280px; max-width: 580px; overflow: auto; border-left: 1px solid var(--vscode-panel-border, #8884); padding: 8px 12px; font-size: 12px; }
+.dhead { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+.attr-head { margin-top: 10px; margin-bottom: 4px; }
+pre.trace { margin: 4px 0 8px; padding: 8px; background: var(--vscode-textCodeBlock-background, var(--vscode-editorWidget-background)); border: 1px solid var(--vscode-editorWidget-border, #8884); font-family: var(--vscode-editor-font-family); font-size: 11px; white-space: pre-wrap; word-break: break-word; overflow-x: auto; }
+table.splits { border-collapse: collapse; font-size: 12px; width: 100%; margin-top: 8px; }
+table.splits td, table.splits th { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--vscode-editorWidget-border, #8882); vertical-align: top; word-break: break-word; }
+.pager { display: flex; gap: 10px; align-items: center; padding: 4px 12px 24px; border-top: 1px solid var(--vscode-panel-border, transparent); font-size: 12px; }
+.error { margin: 24px; padding: 12px 16px; border-left: 3px solid var(--vscode-errorForeground); background: var(--vscode-inputValidation-errorBackground, transparent); }
+.zovo-also { margin-left: 8px; font-size: 11px; }
